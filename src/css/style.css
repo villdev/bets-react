@@ -1,6 +1,8 @@
 :root {
   --text-color: black;
-  --bg-color: #e5e7eb;
+  --main-color: #2510d7;
+  --secondary-color: #ebf0f2;
+  --border-color: #dfe4e8;
 }
 
 /* border box */
@@ -17,5 +19,201 @@ body {
   margin: 0;
   font: 16px/1.7 "Source Sans Pro", Helvetica, Helvetica Neue, Arial, sans-serif;
   color: var(--text-color);
-  background-color: var(--bg-color);
+  background: rgb(242, 245, 246);
+  background: linear-gradient(
+    180deg,
+    rgba(242, 245, 246, 1) 0%,
+    rgba(243, 246, 248, 1) 100%
+  );
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+/* -----------------menu----------------- */
+.menu {
+  flex-basis: 20vw;
+  background-color: var(--secondary-color);
+  border-right: 1px solid var(--border-color);
+}
+
+/* ------------users list-------------------- */
+
+/* input */
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* --------- */
+
+.userlist-wrapper {
+  padding: 32px;
+  width: 100%;
+  position: relative;
+}
+.userlist-header {
+  color: var(--main-color);
+}
+.userlist-search {
+  width: 400px;
+  border: none;
+  background-image: url("../images/search-24.svg");
+  background-position: 4px 50%;
+  background-repeat: no-repeat;
+  padding: 16px 32px;
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 32px;
+}
+.list {
+  width: 100%;
+  position: relative;
+}
+
+.list li {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.list li:not(:first-child) {
+  border-bottom: 1px solid #d9dbe1;
+}
+
+.list li div {
+  /* flex-grow: 1; */
+  width: 9%;
+  margin-right: 8px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list li div:nth-child(2) {
+  /* flex-grow: 5; */
+  width: 30%;
+}
+.list li div:nth-child(3) {
+  /* flex-grow: 2; */
+  width: 10%;
+}
+.list li div:last-child {
+  /* flex-grow: 3; */
+  width: 15%;
+  margin-right: 0;
+}
+.list .list-header img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+.list-header div {
+  background-color: #ebf0f2;
+}
+.list img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+/* ---------pagination-------------------- */
+.pagination {
+  margin-top: 16px;
+  display: flex;
+  list-style: none;
+  flex-direction: row-reverse;
+  height: 40px;
+  align-items: center;
+}
+.pagination li {
+  height: 32px;
+  margin-left: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #9592a3;
+  font-size: 16px;
+}
+.pagination img {
+  width: 24px;
+}
+.pagination-btn {
+  background-color: #ebf0f2;
+  width: 32px;
+  border-radius: 8px;
+}
+.bold {
+  font-weight: 600;
+  margin: 0 8px;
 }
